@@ -20,16 +20,19 @@ class CarGame:
         self.score_font = pygame.font.Font(None, int(self.height * 0.05))
         self.button_font = pygame.font.Font(None, int(self.height * 0.05))
 
+        self.assets_path = os.path.join(os.path.dirname(__file__))
+        
         # Загрузка ресурсов
-        self.background = self.load_image("D:/Programming/Project2/ForRace/images/roadway.jpg", (self.width, self.height))
-        self.carimg = self.load_image("D:/Programming/Project2/ForRace/images/car.png", (int(self.width * 0.08), int(self.height * 0.2)))
-        self.truckimg = self.load_image("D:/Programming/Project2/ForRace/images/pickup.png", (int(self.width * 0.1), int(self.height * 0.3)))
+        self.background = self.load_image(os.path.join(self.assets_path, "ForRace", "images", "roadway.jpg"), (self.width, self.height))
+        self.carimg = self.load_image(os.path.join(self.assets_path, "ForRace", "images", "car.png"), (int(self.width * 0.08), int(self.height * 0.2)))
+        self.truckimg = self.load_image(os.path.join(self.assets_path, "ForRace", "images", "pickup.png"), (int(self.width * 0.1), int(self.height * 0.3)))
+        
+        self.tires = self.load_sound(os.path.join(self.assets_path, "ForRace", "sounds", "tires_skid.ogg"))
+        self.crash = self.load_sound(os.path.join(self.assets_path, "ForRace", "sounds", "crash.ogg"))
+        self.countdown1 = self.load_sound(os.path.join(self.assets_path, "ForRace", "sounds", "countdown1.ogg"))
+        self.countdown2 = self.load_sound(os.path.join(self.assets_path, "ForRace", "sounds", "countdown2.ogg"))
+        self.soundtrack = self.load_sound(os.path.join(self.assets_path, "ForRace", "sounds", "soundtrack.ogg"))
 
-        self.tires = self.load_sound("D:/Programming/Project2/ForRace/sounds/tires_skid.ogg")
-        self.crash = self.load_sound("D:/Programming/Project2/ForRace/sounds/crash.ogg")
-        self.countdown1 = self.load_sound("D:/Programming/Project2/ForRace/sounds/countdown1.ogg")
-        self.countdown2 = self.load_sound("D:/Programming/Project2/ForRace/sounds/countdown2.ogg")
-        self.soundtrack = self.load_sound("D:/Programming/Project2/ForRace/sounds/soundtrack.ogg")
 
         # Настройки звука
         self.tires.set_volume(1)
