@@ -1,5 +1,6 @@
 import pygame
 import datetime
+import os
 import sys
 import sqlite3
 from tetris import Tetris
@@ -225,9 +226,10 @@ class GradientMenu:
         self.folder_position = (300, self.HEIGHT - 300)
         self.folder_rect = pygame.Rect(self.folder_position[0], self.folder_position[1], self.FOLDER_SIZE, self.FOLDER_SIZE)
 
+        base_path = os.path.dirname(os.path.abspath(__file__))
         self.icons = [
-            pygame.image.load("D:/Programming/Project2/Pikchi/app1.png"),
-            pygame.image.load("D:/Programming/Project2/Pikchi/app2.png"),
+            pygame.image.load(os.path.join(base_path, "Pikchi", "app1.png")),
+            pygame.image.load(os.path.join(base_path, "Pikchi", "app2.png")),
         ]
 
         self.gradient_surface = pygame.Surface((self.WIDTH, self.HEIGHT))
